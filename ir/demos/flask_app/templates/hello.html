@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Vector Space Retrieval</h1>
+    <p>Corpora: <strong>{{collection_dir}}</strong></p>
+
+    {% include 'search_widget.html' %}
+{% endblock %}

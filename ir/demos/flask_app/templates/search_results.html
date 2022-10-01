@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ol>
+    {% for i in range(len) %}
+      <li>
+        <a href="{{url_for('get_indexed_document', file_name=retrievals[i]["doc"].file_name)}}">
+          {{retrievals[i]["doc"].file_name}}  ({{retrievals[i]["score"]}})
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}
