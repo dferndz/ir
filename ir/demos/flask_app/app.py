@@ -18,11 +18,15 @@ def get_indexed_document(file_name):
 
 @app.route("/search")
 def search():
-    query = request.args.get('q', None)
+    query = request.args.get("q", None)
 
     if query is None or len(query) == 0:
-        return redirect(url_for('hello'))
+        return redirect(url_for("hello"))
 
-    retrievals = [{"doc": doc, "score": score} for doc, score in get_retrievals(app, query)]
+    retrievals = [
+        {"doc": doc, "score": score} for doc, score in get_retrievals(app, query)
+    ]
 
-    return render_template('search_results.html', retrievals=retrievals, len=len(retrievals))
+    return render_template(
+        "search_results.html", retrievals=retrievals, len=len(retrievals)
+    )

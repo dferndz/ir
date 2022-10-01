@@ -19,10 +19,10 @@ class ToLower(Module):
 class StopWordRemover(Module):
     def __init__(self):
         try:
-            self.stops = set(stopwords.words('english'))
+            self.stops = set(stopwords.words("english"))
         except Exception:
-            download('stopwords')
-            self.stops = set(stopwords.words('english'))
+            download("stopwords")
+            self.stops = set(stopwords.words("english"))
 
     def forward(self, x):
         return x if x not in self.stops else None

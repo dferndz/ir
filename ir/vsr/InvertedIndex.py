@@ -68,9 +68,11 @@ class InvertedIndex:
 
             for occurrence in occurrences:
                 doc, count = occurrence
-                self.doc_to_length[doc] = self.doc_to_length[doc] + np.power(idf * count, 2)\
-                    if doc in self.doc_to_length\
+                self.doc_to_length[doc] = (
+                    self.doc_to_length[doc] + np.power(idf * count, 2)
+                    if doc in self.doc_to_length
                     else np.power(idf * count, 2)
+                )
 
         for doc in self.indexed_docs:
             self.doc_to_length[doc] = np.sqrt(self.doc_to_length[doc])

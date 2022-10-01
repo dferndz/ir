@@ -20,7 +20,9 @@ class Document:
             return SparseVector.counter(clean_tokens)
         else:
             return SparseVector.counter(
-                indexer.add_objects(clean_tokens) if add_to_indexer else indexer.indexes_of(clean_tokens)
+                indexer.add_objects(clean_tokens)
+                if add_to_indexer
+                else indexer.indexes_of(clean_tokens)
             )
 
     def set_vector(self, vector):

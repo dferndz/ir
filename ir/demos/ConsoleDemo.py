@@ -12,11 +12,15 @@ class ConsoleDemo(Demo):
             if query == "":
                 break
 
-            retrievals = self.inverted_index.retrieve(TextDocument(query, pipeline=self.pipeline))
+            retrievals = self.inverted_index.retrieve(
+                TextDocument(query, pipeline=self.pipeline)
+            )
             self.present_retrievals(retrievals)
 
     def open_in_browser(self, doc):
-        path = "file://" + os.path.realpath(os.path.join(self.collection.dir_path, doc.file_name))
+        path = "file://" + os.path.realpath(
+            os.path.join(self.collection.dir_path, doc.file_name)
+        )
         webbrowser.open(path, new=0, autoraise=True)
 
     @staticmethod
@@ -45,7 +49,9 @@ class ConsoleDemo(Demo):
 
     @staticmethod
     def print_subcommand_usage(retrievals):
-        print(f"\nEnter 'm' to view more, press [ENTER] to return or enter a number from {1} to {len(retrievals)}\n")
+        print(
+            f"\nEnter 'm' to view more, press [ENTER] to return or enter a number from {1} to {len(retrievals)}\n"
+        )
 
     def present_retrievals(self, retrievals):
         retrievals = list(retrievals)

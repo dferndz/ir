@@ -4,8 +4,12 @@ from ir.pipelines import Pipeline
 
 
 class Collection:
-    def __init__(self, dir_path, wrapper_class=FileDocument, pipeline=Pipeline.empty_pipeline()):
-        self.file_names = [os.path.join(dir_path, file_name) for file_name in os.listdir(dir_path)]
+    def __init__(
+        self, dir_path, wrapper_class=FileDocument, pipeline=Pipeline.empty_pipeline()
+    ):
+        self.file_names = [
+            os.path.join(dir_path, file_name) for file_name in os.listdir(dir_path)
+        ]
         self.pipeline = pipeline
         self.wrapper_class = wrapper_class
         self.dir_path = dir_path

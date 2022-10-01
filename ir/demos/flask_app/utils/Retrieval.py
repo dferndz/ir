@@ -24,4 +24,3 @@ def render_retrieval(app, file_name):
     collection = get_collection(app)
     path = os.path.join(collection.dir_path, file_name)
     return get_file_contents(path)
-
