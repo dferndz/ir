@@ -20,7 +20,7 @@ class StopWordRemover(Module):
     def __init__(self):
         try:
             self.stops = set(stopwords.words("english"))
-        except Exception:
+        except LookupError:
             download("stopwords")
             self.stops = set(stopwords.words("english"))
 
