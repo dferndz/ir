@@ -9,7 +9,7 @@ class WebDemo(Demo):
         app.config["inverted_index"] = self.inverted_index
         app.config["pipeline"] = self.pipeline
         app.config["collection"] = self.collection
-        app.run(debug=self.args.debug, use_reloader=self.args.debug)
+        app.run(debug=self.args.debug, use_reloader=self.args.debug, host=self.args.host)
 
     def prepare_parser(self, parser: ArgumentParser):
         parser.add_argument(
@@ -19,3 +19,4 @@ class WebDemo(Demo):
             action="store_true",
             help="For debugging",
         )
+        parser.add_argument("--host", required=False, default="localhost", help="The host of the web app")
